@@ -31,6 +31,7 @@ private:
     int randpos,score;
     int zeronum,changnum;
     int playboard[16];
+    int canmove;
     Ui::maingame *ui;
     void keyPressEvent(QKeyEvent *event);
 private slots:

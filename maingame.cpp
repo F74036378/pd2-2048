@@ -2,12 +2,14 @@
 #include "ui_maingame.h"
 #include <QKeyEvent>
 #include <QtGui>
+#include "closesure.h"
 
 maingame::maingame(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::maingame)
 {
     ui->setupUi(this);
+    this->setWindowTitle("GameWindow!");
     QFrame *frame = new QFrame(this);
     frame->resize(600,650);
     QPixmap pixmap(":/new/prefix1/images.jpg");
@@ -36,6 +38,7 @@ maingame::maingame(QWidget *parent) :
     randpos = 0;
     zeronum = 0;
     score = 0;
+    canmove = 1;
     lcd->display(score);
     for(i=0;i<16;i++){
         playboard[i]=0;
@@ -191,10 +194,12 @@ void maingame::restartgame(){
 }
 
 void maingame::closethis(){
-    this->close();
+    closesure* window = new closesure(this);
+    window->show();
 }
 
 void maingame::keyPressEvent(QKeyEvent *event){
+
     if(event->key() == Qt::Key_D ||event->key() == Qt::Key_Right){
         for(i=0;i<4;i++){
             for(j=3;j>=0;j--){
@@ -418,6 +423,7 @@ void maingame::keyPressEvent(QKeyEvent *event){
     lcd->display(score);
     for(i=0;i<16;i++){
         if(playboard[i]==0){
+            canmove = 0;
             pic.load(":/new/prefix1/0.png");
             sixteen[i]->setPixmap(pic);
         }
@@ -474,5 +480,6 @@ void maingame::keyPressEvent(QKeyEvent *event){
             sixteen[i]->setPixmap(pic);
         }
     }
+    //check lose
 }
 

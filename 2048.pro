@@ -14,13 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    maingame.cpp
+    maingame.cpp \
+    closesure.cpp
 
 HEADERS  += mainwindow.h \
-    maingame.h
+    maingame.h \
+    closesure.h
 
 FORMS    += mainwindow.ui \
-    maingame.ui
+    maingame.ui \
+    closesure.ui
 
 RESOURCES += \
     resource.qrc
