@@ -1,28 +1,42 @@
 #include "maingame.h"
 #include "ui_maingame.h"
 #include <QKeyEvent>
+#include <QtGui>
 
 maingame::maingame(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::maingame)
 {
     ui->setupUi(this);
-    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(restartgame()));
-    connect(ui->pushButton_2,SIGNAL(clicked()),this,SLOT(closethis()));
+    QFrame *frame = new QFrame(this);
+    frame->resize(600,650);
+    QPixmap pixmap(":/new/prefix1/images.jpg");
+    QPalette   palette;
+    palette.setBrush(frame->backgroundRole(),QBrush(pixmap));
+    frame->setPalette(palette);
+    frame->setMask(pixmap.mask());
+    frame->setAutoFillBackground(true);
+    frame->show();
+    lcd = new QLCDNumber(this);
+    lcd->show();
+    lcd->setGeometry(20,20,100,60);
+    clbu = new QPushButton(this);
+    rebu = new QPushButton(this);
+    clbu->setText("close");
+    rebu->setText("restart");
+    clbu->setFocusPolicy(Qt::NoFocus);
+    rebu->setFocusPolicy(Qt::NoFocus);
+    rebu->setGeometry(450,55,100,30);
+    clbu->setGeometry(450,15,100,30);
+    connect(rebu,SIGNAL(clicked()),this,SLOT(restartgame()));
+    connect(clbu,SIGNAL(clicked()),this,SLOT(closethis()));
     randvalue = 0;
     changnum = 0;
     rush = 0;
     randpos = 0;
     zeronum = 0;
     score = 0;
-    sco = new QLabel(this);
-    sco->setGeometry(10,10,150,70);
-    sco->setNum(score);
-    QFont fonts = sco->font();
-    fonts.setPointSize(24);
-    fonts.setBold(true);
-    sco->setFont(fonts);
-    sco->show();
+    lcd->display(score);
     for(i=0;i<16;i++){
         playboard[i]=0;
     }
@@ -106,7 +120,7 @@ maingame::~maingame()
 
 void maingame::restartgame(){
     score = 0;
-    sco->setNum(score);
+    lcd->display(score);
     for(i=0;i<16;i++){
         playboard[i] = 0 ;
     }
@@ -234,7 +248,7 @@ void maingame::keyPressEvent(QKeyEvent *event){
             }
         }
 
-        sco->setNum(score);
+
     }
     if(event->key() == Qt::Key_A ||event->key() == Qt::Key_Left){
         for(i=0;i<4;i++){
@@ -289,7 +303,7 @@ void maingame::keyPressEvent(QKeyEvent *event){
             }
         }
 
-        sco->setNum(score);
+
     }
     if(event->key() == Qt::Key_W ||event->key() == Qt::Key_Up){
         for(j=0;j<4;j++){
@@ -344,7 +358,7 @@ void maingame::keyPressEvent(QKeyEvent *event){
             }
         }
 
-        sco->setNum(score);
+
     }
     if(event->key() == Qt::Key_S ||event->key() == Qt::Key_Down){
         for(j=0;j<4;j++){
@@ -399,8 +413,9 @@ void maingame::keyPressEvent(QKeyEvent *event){
             }
         }
 
-        sco->setNum(score);
+
     }
+    lcd->display(score);
     for(i=0;i<16;i++){
         if(playboard[i]==0){
             pic.load(":/new/prefix1/0.png");
@@ -460,3 +475,4 @@ void maingame::keyPressEvent(QKeyEvent *event){
         }
     }
 }
+

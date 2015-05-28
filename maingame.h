@@ -8,6 +8,7 @@
 #include <QLabel>
 #include <ctime>
 #include <QKeyEvent>
+#include <QLCDNumber>
 namespace Ui {
 class maingame;
 }
@@ -21,9 +22,11 @@ public:
     ~maingame();
 
 private:
+    QLCDNumber* lcd;
+    QPushButton* clbu;
+    QPushButton* rebu;
     QPixmap pic;
     QLabel* sixteen[16];
-    QLabel* sco;
     int randvalue,rush,i,j,k;
     int randpos,score;
     int zeronum,changnum;
@@ -33,6 +36,7 @@ private:
 private slots:
     void restartgame();
     void closethis();
+
 };
 
 #endif // MAINGAME_H
