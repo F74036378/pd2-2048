@@ -9,6 +9,7 @@
 #include <ctime>
 #include <QKeyEvent>
 #include <QLCDNumber>
+#include "loose.h"
 namespace Ui {
 class maingame;
 }
@@ -16,6 +17,8 @@ class maingame;
 class maingame : public QDialog
 {
     Q_OBJECT
+
+    friend class loose;
 
 public:
     explicit maingame(QWidget *parent = 0);
@@ -31,7 +34,8 @@ private:
     int randpos,score;
     int zeronum,changnum;
     int playboard[16];
-    int canmove;
+    bool cantmove;
+    int highspeed;
     Ui::maingame *ui;
     void keyPressEvent(QKeyEvent *event);
 private slots:

@@ -4,6 +4,7 @@
 #include <QtGui>
 #include "closesure.h"
 
+
 maingame::maingame(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::maingame)
@@ -34,11 +35,11 @@ maingame::maingame(QWidget *parent) :
     connect(clbu,SIGNAL(clicked()),this,SLOT(closethis()));
     randvalue = 0;
     changnum = 0;
-    rush = 0;
+    rush = highspeed = 0;
     randpos = 0;
     zeronum = 0;
     score = 0;
-    canmove = 1;
+    cantmove = 1;
     lcd->display(score);
     for(i=0;i<16;i++){
         playboard[i]=0;
@@ -238,18 +239,39 @@ void maingame::keyPressEvent(QKeyEvent *event){
                 }
             }
         }
+        for(i=0;i<16;i++){
+            if(playboard[i] == 0){
+                highspeed++;
+            }
+        }
         if(changnum!=0){
-            while(1){
-                randpos = rand()%16+1;
-                randvalue = rand()%3+2;
-                if(randvalue == 3){
-                    randvalue = 2;
+            if(highspeed<=4){
+                for(i=0;i<16;i++){
+                    if(playboard[i] == 0){
+                        randvalue = rand()%3+2;
+                        if(randvalue == 3){
+                            randvalue = 2;
+                        }
+                        playboard[i] = randvalue;
+                        highspeed = 0;
+                        break;
+                    }
                 }
-                if(playboard[randpos]==0){
-                    playboard[randpos]=randvalue;
-                    changnum = 0;
-                    break;
+            }
+            else{
+                while(1){
+                    randpos = rand()%16+1;
+                    randvalue = rand()%3+2;
+                    if(randvalue == 3){
+                        randvalue = 2;
+                    }
+                    if(playboard[randpos]==0){
+                        playboard[randpos]=randvalue;
+                        changnum = 0;
+                        break;
+                    }
                 }
+                highspeed = 0;
             }
         }
 
@@ -293,18 +315,39 @@ void maingame::keyPressEvent(QKeyEvent *event){
                 }
             }
         }
+        for(i=0;i<16;i++){
+            if(playboard[i] == 0){
+                highspeed++;
+            }
+        }
         if(changnum!=0){
-            while(1){
-                randpos = rand()%16+1;
-                randvalue = rand()%3+2;
-                if(randvalue == 3){
-                    randvalue = 2;
+            if(highspeed<=4){
+                for(i=0;i<16;i++){
+                    if(playboard[i] == 0){
+                        randvalue = rand()%3+2;
+                        if(randvalue == 3){
+                            randvalue = 2;
+                        }
+                        playboard[i] = randvalue;
+                        highspeed = 0;
+                        break;
+                    }
                 }
-                if(playboard[randpos]==0){
-                    playboard[randpos]=randvalue;
-                    changnum = 0;
-                    break;
+            }
+            else{
+                while(1){
+                    randpos = rand()%16+1;
+                    randvalue = rand()%3+2;
+                    if(randvalue == 3){
+                        randvalue = 2;
+                    }
+                    if(playboard[randpos]==0){
+                        playboard[randpos]=randvalue;
+                        changnum = 0;
+                        break;
+                    }
                 }
+                highspeed = 0;
             }
         }
 
@@ -348,18 +391,39 @@ void maingame::keyPressEvent(QKeyEvent *event){
                 }
             }
         }
+        for(i=0;i<16;i++){
+            if(playboard[i] == 0){
+                highspeed++;
+            }
+        }
         if(changnum!=0){
-            while(1){
-                randpos = rand()%16+1;
-                randvalue = rand()%3+2;
-                if(randvalue == 3){
-                    randvalue = 2;
+            if(highspeed<=4){
+                for(i=0;i<16;i++){
+                    if(playboard[i] == 0){
+                        randvalue = rand()%3+2;
+                        if(randvalue == 3){
+                            randvalue = 2;
+                        }
+                        playboard[i] = randvalue;
+                        highspeed = 0;
+                        break;
+                    }
                 }
-                if(playboard[randpos]==0){
-                    playboard[randpos]=randvalue;
-                    changnum = 0;
-                    break;
+            }
+            else{
+                while(1){
+                    randpos = rand()%16+1;
+                    randvalue = rand()%3+2;
+                    if(randvalue == 3){
+                        randvalue = 2;
+                    }
+                    if(playboard[randpos]==0){
+                        playboard[randpos]=randvalue;
+                        changnum = 0;
+                        break;
+                    }
                 }
+                highspeed = 0;
             }
         }
 
@@ -403,27 +467,49 @@ void maingame::keyPressEvent(QKeyEvent *event){
                 }
             }
         }
+        for(i=0;i<16;i++){
+            if(playboard[i] == 0){
+                highspeed++;
+            }
+        }
         if(changnum!=0){
-            while(1){
-                randpos = rand()%16+1;
-                randvalue = rand()%3+2;
-                if(randvalue == 3){
-                    randvalue = 2;
+            if(highspeed<=4){
+                for(i=0;i<16;i++){
+                    if(playboard[i] == 0){
+                        randvalue = rand()%3+2;
+                        if(randvalue == 3){
+                            randvalue = 2;
+                        }
+                        playboard[i] = randvalue;
+                        highspeed = 0;
+                        break;
+                    }
                 }
-                if(playboard[randpos]==0){
-                    playboard[randpos]=randvalue;
-                    changnum = 0;
-                    break;
+            }
+            else{
+                while(1){
+                    randpos = rand()%16+1;
+                    randvalue = rand()%3+2;
+                    if(randvalue == 3){
+                        randvalue = 2;
+                    }
+                    if(playboard[randpos]==0){
+                        playboard[randpos]=randvalue;
+                        changnum = 0;
+                        break;
+                    }
                 }
+                highspeed = 0;
             }
         }
 
 
     }
     lcd->display(score);
+    cantmove = 1;
     for(i=0;i<16;i++){
         if(playboard[i]==0){
-            canmove = 0;
+            cantmove = 0;
             pic.load(":/new/prefix1/0.png");
             sixteen[i]->setPixmap(pic);
         }
@@ -480,6 +566,31 @@ void maingame::keyPressEvent(QKeyEvent *event){
             sixteen[i]->setPixmap(pic);
         }
     }
-    //check lose
+    if(cantmove){
+        for(j=0;j<4;j++){
+            for(i=0;i<3;i++){
+                if(playboard[(i*4)+j] == playboard[((i+1)*4)+j]){
+                    cantmove = 0;
+                    j=4;
+                    break;
+                }
+            }
+        }
+    }
+    if(cantmove){
+        for(i=0;i<4;i++){
+            for(j=0;j<3;j++){
+                if(playboard[(i*4)+j] == playboard[(i*4)+j+1]){
+                    cantmove = 0;
+                    i = 5;
+                    break;
+                }
+            }
+        }
+    }
+    if(cantmove){
+        loose* oops = new loose(this);
+        oops->show();
+    }
 }
 

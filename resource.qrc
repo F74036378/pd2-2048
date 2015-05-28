@@ -16,5 +16,6 @@
         <file>0.png</file>
         <file>images.jpg</file>
         <file>sure.gif</file>
+        <file>gameover.png</file>
     </qresource>
 </RCC>
