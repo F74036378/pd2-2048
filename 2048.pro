@@ -16,17 +16,23 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     maingame.cpp \
     closesure.cpp \
-    loose.cpp
+    loose.cpp \
+    mainmode.cpp \
+    mode2.cpp
 
 HEADERS  += mainwindow.h \
     maingame.h \
     closesure.h \
-    loose.h
+    loose.h \
+    mainmode.h \
+    mode2.h
 
 FORMS    += mainwindow.ui \
     maingame.ui \
     closesure.ui \
-    loose.ui
+    loose.ui \
+    mainmode.ui \
+    mode2.ui
 
 RESOURCES += \
     resource.qrc

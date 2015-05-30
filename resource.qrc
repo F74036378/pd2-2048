@@ -17,5 +17,8 @@
         <file>images.jpg</file>
         <file>sure.gif</file>
         <file>gameover.png</file>
+        <file>mode.JPG</file>
+        <file>magicstone.png</file>
+        <file>mode2.png</file>
     </qresource>
 </RCC>

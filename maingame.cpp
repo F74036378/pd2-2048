@@ -1,8 +1,6 @@
 #include "maingame.h"
 #include "ui_maingame.h"
-#include <QKeyEvent>
-#include <QtGui>
-#include "closesure.h"
+
 
 
 maingame::maingame(QWidget *parent) :
@@ -20,19 +18,27 @@ maingame::maingame(QWidget *parent) :
     frame->setMask(pixmap.mask());
     frame->setAutoFillBackground(true);
     frame->show();
+
     lcd = new QLCDNumber(this);
     lcd->show();
     lcd->setGeometry(20,20,100,60);
+
     clbu = new QPushButton(this);
     rebu = new QPushButton(this);
-    clbu->setText("close");
-    rebu->setText("restart");
-    clbu->setFocusPolicy(Qt::NoFocus);
-    rebu->setFocusPolicy(Qt::NoFocus);
+    mode = new QPushButton(this);
     rebu->setGeometry(450,55,100,30);
     clbu->setGeometry(450,15,100,30);
+    mode->setGeometry(450,95,100,30);
+    rebu->setText("restart");
+    clbu->setText("close");
+    mode->setText("mode");
+    clbu->setFocusPolicy(Qt::NoFocus);
+    rebu->setFocusPolicy(Qt::NoFocus);
+    mode->setFocusPolicy(Qt::NoFocus);
     connect(rebu,SIGNAL(clicked()),this,SLOT(restartgame()));
     connect(clbu,SIGNAL(clicked()),this,SLOT(closethis()));
+    connect(mode,SIGNAL(clicked()),this,SLOT(modegame()));
+
     randvalue = 0;
     changnum = 0;
     rush = highspeed = 0;
@@ -594,3 +600,8 @@ void maingame::keyPressEvent(QKeyEvent *event){
     }
 }
 
+void maingame::modegame(){
+    mainmode* mmode = new mainmode(this);
+    mmode->show();
+    this->hide();
+}

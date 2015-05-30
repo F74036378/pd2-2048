@@ -1,5 +1,5 @@
-#ifndef MAINGAME_H
-#define MAINGAME_H
+#ifndef MODE2_H
+#define MODE2_H
 
 #include <QDialog>
 #include <QWidget>
@@ -13,22 +13,23 @@
 #include <QtGui>
 #include "closesure.h"
 #include "mainmode.h"
+
 namespace Ui {
-class maingame;
+class mode2;
 }
 
-class maingame : public QDialog
+class mode2 : public QDialog
 {
     Q_OBJECT
-
     friend class loose;
     friend class mainmode;
 
 public:
-    explicit maingame(QWidget *parent = 0);
-    ~maingame();
+    explicit mode2(QWidget *parent = 0);
+    ~mode2();
 
 private:
+    Ui::mode2 *ui;
     QLCDNumber* lcd;
     QPushButton* clbu;
     QPushButton* rebu;
@@ -41,13 +42,11 @@ private:
     int playboard[16];
     bool cantmove;
     int highspeed;
-    Ui::maingame *ui;
     void keyPressEvent(QKeyEvent *event);
 private slots:
     void restartgame();
     void closethis();
     void modegame();
-
 };
 
-#endif // MAINGAME_H
+#endif // MODE2_H
