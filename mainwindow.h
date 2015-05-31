@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QWidget>
-#include "maingame.h"
+#include "mainmode.h"
 namespace Ui {
 class MainWindow;
 }

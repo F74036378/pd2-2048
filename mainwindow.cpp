@@ -15,7 +15,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::gamestart(){
-    maingame* gamewindow = new maingame(this);
+    mainmode* gamewindow = new mainmode(this);
     gamewindow->show();
     this->hide();
 }

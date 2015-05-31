@@ -239,7 +239,7 @@ void panick::keyPressEvent(QKeyEvent *event){
                     if(playboard[(i*4)+j]==playboard[(i*4)+j+1]){
                         changenum++;
                         playboard[(i*4)+j+1] += playboard[(i*4)+j];
-                        score += playboard[(i*4)+j+1];
+                        score += (2*playboard[(i*4)+j+1]);
                         for(k=j;k>0;k--){
                             playboard[(i*4)+k] = playboard[(i*4)+k-1];
                         }
@@ -315,7 +315,7 @@ void panick::keyPressEvent(QKeyEvent *event){
                     if(playboard[(i*4)+j]==playboard[(i*4)+j-1]){
                         changenum++;
                         playboard[(i*4)+j-1] += playboard[(i*4)+j];
-                        score+=playboard[(i*4)+j-1];
+                        score+=(2*playboard[(i*4)+j-1]);
                         for(k=j;k<3;k++){
                             playboard[(i*4)+k] = playboard[(i*4)+k+1];
                         }
@@ -391,7 +391,7 @@ void panick::keyPressEvent(QKeyEvent *event){
                     if(playboard[(i*4)+j]==playboard[((i-1)*4)+j]){
                         changenum++;
                         playboard[((i-1)*4)+j] += playboard[(i*4)+j];
-                        score += playboard[((i-1)*4)+j];
+                        score += (2*playboard[((i-1)*4)+j]);
                         for(k=i;k<3;k++){
                             playboard[(k*4)+j] = playboard[((k+1)*4)+j];
                         }
@@ -467,7 +467,7 @@ void panick::keyPressEvent(QKeyEvent *event){
                     if(playboard[(i*4)+j]==playboard[((i+1)*4)+j]){
                         changenum++;
                         playboard[((i+1)*4)+j] += playboard[(i*4)+j];
-                        score += playboard[((i+1)*4)+j];
+                        score += (2*playboard[((i+1)*4)+j]);
                         for(k=i;k>0;k--){
                             playboard[(k*4)+j] = playboard[((k-1)*4)+j];
                         }
