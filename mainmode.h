@@ -10,6 +10,7 @@
 #include <QKeyEvent>
 #include <QtGui>
 #include "maingame.h"
+#include "panick.h"
 
 namespace Ui {
 class mainmode;
@@ -32,6 +33,7 @@ private:
 private slots:
     void classical();
     void XTile();
+    void Panick();
 };
 
 #endif // MAINMODE_H

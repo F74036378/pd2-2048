@@ -18,21 +18,24 @@ SOURCES += main.cpp\
     closesure.cpp \
     loose.cpp \
     mainmode.cpp \
-    mode2.cpp
+    mode2.cpp \
+    panick.cpp
 
 HEADERS  += mainwindow.h \
     maingame.h \
     closesure.h \
     loose.h \
     mainmode.h \
-    mode2.h
+    mode2.h \
+    panick.h
 
 FORMS    += mainwindow.ui \
     maingame.ui \
     closesure.ui \
     loose.ui \
     mainmode.ui \
-    mode2.ui
+    mode2.ui \
+    panick.ui
 
 RESOURCES += \
     resource.qrc

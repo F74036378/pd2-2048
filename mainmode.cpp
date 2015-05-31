@@ -26,6 +26,7 @@ mainmode::mainmode(QWidget *parent) :
     mode3->setText("Panick");
     connect(mode1,SIGNAL(clicked()),this,SLOT(classical()));
     connect(mode_2,SIGNAL(clicked()),this,SLOT(XTile()));
+    connect(mode3,SIGNAL(clicked()),this,SLOT(Panick()));
 }
 
 mainmode::~mainmode()
@@ -42,5 +43,11 @@ void mainmode::classical(){
 void mainmode::XTile(){
     mode2* two = new mode2(this);
     two->show();
+    this->hide();
+}
+
+void mainmode::Panick(){
+    panick* three = new panick(this);
+    three->show();
     this->hide();
 }
