@@ -39,7 +39,7 @@ mode2::mode2(QWidget *parent) :
 
     randvalue = 0;
     changnum = 0;
-    rush = highspeed = 0;
+    rush = highspeed = level = 0;
     randpos = 0;
     zeronum = 0;
     score = 0;
@@ -218,7 +218,15 @@ window->show();
 }
 
 void mode2::keyPressEvent(QKeyEvent *event){
-
+if(score>6141 && level == 0){
+    for(i=0;i<16;i++){
+        if(playboard[i] == 0){
+            playboard[i] = -1;
+            level = 1;
+            break;
+        }
+    }
+}
 if(event->key() == Qt::Key_D ||event->key() == Qt::Key_Right){
     for(i=0;i<4;i++){
         for(j=3;j>=0;j--){
@@ -526,7 +534,7 @@ if(event->key() == Qt::Key_S ||event->key() == Qt::Key_Down){
 lcd->display(score);
 cantmove = 1;
 for(i=0;i<16;i++){
-    if(playboard[i]==1){
+    if(playboard[i]==1 || playboard[i] == -1){
         pic.load(":/new/prefix1/magicstone.png");
         sixteen[i]->setPixmap(pic);
     }

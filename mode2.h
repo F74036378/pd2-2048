@@ -41,7 +41,7 @@ private:
     int zeronum,changnum;
     int playboard[16];
     bool cantmove;
-    int highspeed;
+    int highspeed,level;
     void keyPressEvent(QKeyEvent *event);
 private slots:
     void restartgame();
