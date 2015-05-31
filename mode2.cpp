@@ -148,6 +148,13 @@ if(randvalue == 3){
     randvalue = 2;
 }
 playboard[randpos] = randvalue;
+while(1){
+randpos = rand()%16+1;
+    if(playboard[randpos] == 0){
+        playboard[randpos] = 1;
+        break;
+    }
+}
 for(i=0;i<16;i++){
     if(playboard[i]==1){
         pic.load(":/new/prefix1/magicstone.png");

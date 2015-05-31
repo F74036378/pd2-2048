@@ -9,7 +9,7 @@ panick::panick(QWidget *parent) :
     this->setWindowTitle("GameWindow!");
     QFrame *frame = new QFrame(this);
     frame->resize(600,650);
-    QPixmap pixmap(":/new/prefix1/images.jpg");
+    QPixmap pixmap(":/new/prefix1/panick.png");
     QPalette   palette;
     palette.setBrush(frame->backgroundRole(),QBrush(pixmap));
     frame->setPalette(palette);

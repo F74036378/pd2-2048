@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QWidget>
 #include "mainmode.h"
+#include <QPushButton>
 namespace Ui {
 class MainWindow;
 }
@@ -18,6 +19,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QPushButton* startg;
+
 private slots:
     void gamestart();
 };
